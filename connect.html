@@ -46,6 +46,9 @@
     -->
     <!--if lte IE 8link(rel='stylesheet', href='styles/ie8.css')
     -->
+    <!-- Start Stripe Elements Javascript-->
+    <script src="https://js.stripe.com/v3/"></script>
+    <!-- End Stripe Elements Javascript-->
   </head>
   <body>
     <!-- Wrapper-->
@@ -80,17 +83,37 @@
             <h1 id="tagline">Connect</h1>
             <p id="prompt">Still want to learn more? That's great! Make sure to read the <a target="_new" href="capoeirawellness-program-brochure.pdf">brochure</a>, <a id="freetrialbutton" data-tf-popup="hMpMYNOW" data-tf-opacity="100" data-tf-size="100" data-tf-iframe-props="title=Free Class Form" data-tf-transitive-search-params data-tf-medium="snippet">join the waitlist for a free class</a>, learn about <a target="_new" href="https://www.paaukforestmonastery.org/">Buddhist meditation</a>, follow <a target="_new" href="https://www.instagram.com/contramestrezumbi/">Zumbi on Instagram</a> or <a target="_new" href="https://twitter.com/capoeiracompany">Capoeira Wellness on Twitter</a> first. If that's still insufficient, get in touch.</p>
             <p id="assurance">Reach out about free movement classes for seniors, or free music classes for disabled members of the community, or to just talk to <a href="about.html">Zumbi</a> about mental and physical wellbeing anytime. There's so much to share about <strong>Capoeira</strong> and <strong>Ānāpānasati</strong> that Zumbi could talk at length about them for hours.</p>
+          </header>
+          <main>
+            <h6 id="afterpay-clearpay-message"></h6>
+            <script>
+              const stripe = Stripe('pk_live_51MU9JUBtwU1MSlncs8783NfaMepIYl2M1YOS8wfTvBPhJyu0SpWXmSfZOQFYW8i4en4CNXpYC6bslTKf1PskgVs9008FU4uEPs');
+
+              const elements = stripe.elements();
+
+              const options = {
+                amount: 150000, // $1,500.00 USD
+                currency: 'USD',
+                logoType: 'badge',
+                badgeTheme: 'black-on-mint', // 'white-on-black'
+                lockupTheme: 'black',
+                introText: 'Pay in'
+              };
+
+              const afterpayClearpayMessageElement =
+                elements.create('afterpayClearpayMessage', options);
+
+              afterpayClearpayMessageElement.mount('#afterpay-clearpay-message');
+            </script>
             <ul class="actions">
               <li><a class="button" id="learnmorebutton" href="mailto:info@capoeirawellness.com?subject=Learn%20More&amp;body=I%20would%20like%20to%20learn%20more.">Send Email</a></li>
               <li><a class="button special" id="typeformbutton" data-tf-popup="iwEyw7r4" data-tf-opacity="100" data-tf-size="100" data-tf-iframe-props="title=Basic Information" data-tf-transitive-search-params data-tf-medium="snippet">Contact Form</a></li>
             </ul>
             <h6 id="caveat">Mindfulness Matters</h6>
-            <!--- 
-            <section class="tiles" id="posts"></section>
-            <p>
-                &nbsp</p>
-            -->
-          </header>
+          </main>
+          <footer>
+            <!-- <section class="tiles" id="posts"></section>-->
+          </footer>
         </div>
       </div>
       <!-- End Main-->

@@ -46,6 +46,9 @@
     -->
     <!--if lte IE 8link(rel='stylesheet', href='styles/ie8.css')
     -->
+    <!-- Start Stripe Elements Javascript-->
+    <script src="https://js.stripe.com/v3/"></script>
+    <!-- End Stripe Elements Javascript-->
   </head>
   <body>
     <!-- Wrapper-->
@@ -79,13 +82,38 @@
           <header>
             <h1 id="tagline">Move Mindfully</h1>
             <p id="definition">Cultivate serenity rooted in the training of Afro-Brazilian martial arts for physical wellbeing. In addition to practicing traditional music and singing Capoeira songs, train Capoeira movement fundamentals, and serenely conclude classes with a short meditation. Weekly classes are designed by an aspiring yogi for aspiring yogis and they benefit everyone desiring to improve their flexibility, balance, strength, and general physical fitness level.</p>
-            <p id="appeal">The next six month lifestyle challenge starts April 2023. Join the waitlist for a free class. Better yet, take the <a href="course.html">course</a>. Signup for weekly Capoeira classes with <a href="about.html">Contramestre Zumbi</a> today.</p>
+            <p id="appeal">The next six month lifestyle challenge starts April 2023. Join the waitlist for a free class. Better yet, take the entire six month <a href="course.html">course</a> with <a href="about.html">Contramestre Zumbi</a> for just $1,500. Signup today.</p>
+          </header>
+          <main>
+            <h6 id="afterpay-clearpay-message"></h6>
+            <script>
+              const stripe = Stripe('pk_live_51MU9JUBtwU1MSlncs8783NfaMepIYl2M1YOS8wfTvBPhJyu0SpWXmSfZOQFYW8i4en4CNXpYC6bslTKf1PskgVs9008FU4uEPs');
+
+              const elements = stripe.elements();
+
+              const options = {
+                amount: 150000, // $1,500.00 USD
+                currency: 'USD',
+                logoType: 'badge',
+                badgeTheme: 'black-on-mint', // 'white-on-black'
+                lockupTheme: 'black',
+                introText: 'Pay in'
+              };
+
+              const afterpayClearpayMessageElement =
+                elements.create('afterpayClearpayMessage', options);
+
+              afterpayClearpayMessageElement.mount('#afterpay-clearpay-message');
+            </script>
             <ul class="actions">
               <li><a class="button special" id="weeklyclassbutton" href="https://buy.stripe.com/aEU3duaDDbu7f9C9AA">Purchase Now</a></li>
               <li><a class="button" id="freetrialbutton" data-tf-popup="hMpMYNOW" data-tf-opacity="100" data-tf-size="100" data-tf-iframe-props="title=Free Class Form" data-tf-transitive-search-params data-tf-medium="snippet">Free Class Signup</a></li>
             </ul>
             <h6 id="objective">Space is limited</h6>
-          </header>
+          </main>
+          <footer>
+            <!-- <section class="tiles" id="posts"></section>-->
+          </footer>
         </div>
       </div>
       <!-- End Main-->
