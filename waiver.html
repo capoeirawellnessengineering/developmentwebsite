@@ -35,6 +35,34 @@
       ga('create', 'UA-103837106-1', 'auto');
       ga('send', 'pageview');
     </script>
+    <script>
+      'use strict';
+
+      //https://github.com/vimeo/player.js - documentation
+
+      let iframe = document.querySelector('iframe');
+      let player = new Vimeo.Player(iframe);
+      let link = document.querySelector('.open-popup-link');
+      let shadowbox = document.querySelector('.vimeo-shadowbox');
+      let closeButton = document.querySelector('.vimeo-shadowbox__close-button');
+
+      player.on('ended', function() {
+        hidePopup();
+      });
+
+      link.addEventListener('click', showPopup);
+      shadowbox.addEventListener('click', hidePopup);
+      closeButton.addEventListener('click', hidePopup);
+
+      function showPopup() {
+        player.play();
+        shadowbox.classList.remove('vimeo-shadowbox--hidden');
+      }
+      function hidePopup() {
+        player.pause();
+        shadowbox.classList.add('vimeo-shadowbox--hidden');
+      }
+    </script>
     <!-- End Google Analytics Tracking Code-->
     <!-- Start Fetch Polyfil-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js"></script>
@@ -46,6 +74,9 @@
     -->
     <!--if lte IE 8link(rel='stylesheet', href='styles/ie8.css')
     -->
+    <style>
+
+    </style>
   </head>
   <body>
     <!-- Wrapper-->
@@ -77,21 +108,28 @@
       <div id="main">
         <div class="inner">
           <header>
-            <h1 id="title">Refund Policy</h1>
+            <h1 id="title">Liability Waiver</h1>
             <h2>OVERVIEW</h2>
-
-            <p>This Refund Policy describes how to receive a refund for Service offered via <strong>https://www.capoeirawellness.com</strong> (the <strong>“Site”</strong>).</p>
-
-            <h2>REFUNDS</h2>
-
-            <p>We do <strong>not</strong> offer refunds at this time.</p>
-
-            <h2>CONTACT INFORMATION</h2>
-
-            <p>For more information about our refund practices, if you have questions, or if you would like to make a complaint, please contact us by e-mail at info@capoeirawellness.com or by mail using the details provided below:</p>
-
-            <h6>Capoeira Wellness LLC, 6253 Tremayne Drive, Mount Dora, FL 32757</h6>
+            <p><strong>Capoeira Wellness LLC</strong> serves instruction on the practice Capoeira. The terms &ldquo;<strong>you</strong>&rdquo; and &ldquo;<strong>your</strong>&rdquo;, refer to you, the consumer of this instruction. The terms &ldquo;<strong>we</strong>&rdquo;, &ldquo;<strong>us</strong>&rdquo; and &ldquo;<strong>our</strong>&rdquo; refer to Capoeira Wellness LLC, our parent, subsidiaries, affiliates, partners, officers, directors, agents, contractors, licensors, service providers, subcontractors, suppliers, interns and employees.</p>
+            <p>We only provide instruction, &ldquo;<strong>our Services</strong>&rdquo;, under our <a href="terms.html">Terms of Service</a> which include your acceptance of the following release of liability and assumption of risk.</p>
+            
+            <h2>RELEASE OF LIABILITY</h2>
+            <p>By taking our instruction or attending our Capoeira classes, you will be participating in our Services, and attest that you have read, fully understand, and agree with the following representations and conditions:</p>
+            <p>You release us from any and all liability for, and waive any and all claims for, injury, loss, or damage in any way connected with your participation in the Service, including injury, loss, or damage caused in whole or in part by our negligence or other misconduct.</p>
+            
+            <h2>ASSUMPTION OF RISK</h2>
+            <p>Positive results of our Services on your level of health and fitness, strength, flexibility, or physical and mental wellbeing are not guaranteed. Furthermore, the practice of Capoeira is hazardous. You could be seriously injured or killed in the practice of Capoeira.</p>
+            <p>You declare that you are fully aware that the practice of Capoeira is dangerous. KNOWING THIS DANGER, YOU AGREE TO ENGAGE IN OUR SERVICES AT YOUR OWN RISK AND UNDERSTAND THAT THESE RISKS INCLUDE GRIEVOUS PHYSICAL INJURY OR EVEN DEATH. You assume all risks, foreseeable and unforeseeable, in any way connected with participation in our Services. Furthermore, you accept the risks and hazards connected with undertaking the practice of Capoeira when alone, in a group setting outside of our Capoeira classes, or otherwise not participating in our Services.</p>
           </header>
+        </div>
+      </div>
+      <a class="open-popup-link" href="#">Watch the Video</a>
+      <div class="vimeo-shadowbox vimeo-shadowbox--hidden">
+        <div class="vimeo-shadowbox__video-wrapper">
+          <div class="vimeo-shadowbox__video">
+              <iframe title="vimeo-player" src="https://player.vimeo.com/video/795643611?h=d307fb063e" width="640" height="360" frameborder="0"    allowfullscreen></iframe>
+          </div>
+          <a class="vimeo-shadowbox__close-button" href="#">Close</a>
         </div>
       </div>
       <!-- End Main-->
@@ -144,6 +182,7 @@
     <!--if lte IE 8script(src='scripts/ie/respond.min.js')
     -->
     <script src="scripts/app.min.js"></script>
+    <script src="https://embed.typeform.com/next/embed.js"></script>
     <!-- End Scripts-->
   </body>
 </html>
