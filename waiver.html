@@ -35,34 +35,6 @@
       ga('create', 'UA-103837106-1', 'auto');
       ga('send', 'pageview');
     </script>
-    <script>
-      'use strict';
-
-      //https://github.com/vimeo/player.js - documentation
-
-      let iframe = document.querySelector('iframe');
-      let player = new Vimeo.Player(iframe);
-      let link = document.querySelector('.open-popup-link');
-      let shadowbox = document.querySelector('.vimeo-shadowbox');
-      let closeButton = document.querySelector('.vimeo-shadowbox__close-button');
-
-      player.on('ended', function() {
-        hidePopup();
-      });
-
-      link.addEventListener('click', showPopup);
-      shadowbox.addEventListener('click', hidePopup);
-      closeButton.addEventListener('click', hidePopup);
-
-      function showPopup() {
-        player.play();
-        shadowbox.classList.remove('vimeo-shadowbox--hidden');
-      }
-      function hidePopup() {
-        player.pause();
-        shadowbox.classList.add('vimeo-shadowbox--hidden');
-      }
-    </script>
     <!-- End Google Analytics Tracking Code-->
     <!-- Start Fetch Polyfil-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js"></script>
@@ -74,9 +46,6 @@
     -->
     <!--if lte IE 8link(rel='stylesheet', href='styles/ie8.css')
     -->
-    <style>
-
-    </style>
   </head>
   <body>
     <!-- Wrapper-->
@@ -121,15 +90,6 @@
             <p>Positive results of our Services on your level of health and fitness, strength, flexibility, or physical and mental wellbeing are not guaranteed. Furthermore, the practice of Capoeira is hazardous. You could be seriously injured or killed in the practice of Capoeira.</p>
             <p>You declare that you are fully aware that the practice of Capoeira is dangerous. KNOWING THIS DANGER, YOU AGREE TO ENGAGE IN OUR SERVICES AT YOUR OWN RISK AND UNDERSTAND THAT THESE RISKS INCLUDE GRIEVOUS PHYSICAL INJURY OR EVEN DEATH. You assume all risks, foreseeable and unforeseeable, in any way connected with participation in our Services. Furthermore, you accept the risks and hazards connected with undertaking the practice of Capoeira when alone, in a group setting outside of our Capoeira classes, or otherwise not participating in our Services.</p>
           </header>
-        </div>
-      </div>
-      <a class="open-popup-link" href="#">Watch the Video</a>
-      <div class="vimeo-shadowbox vimeo-shadowbox--hidden">
-        <div class="vimeo-shadowbox__video-wrapper">
-          <div class="vimeo-shadowbox__video">
-              <iframe title="vimeo-player" src="https://player.vimeo.com/video/795643611?h=d307fb063e" width="640" height="360" frameborder="0"    allowfullscreen></iframe>
-          </div>
-          <a class="vimeo-shadowbox__close-button" href="#">Close</a>
         </div>
       </div>
       <!-- End Main-->
